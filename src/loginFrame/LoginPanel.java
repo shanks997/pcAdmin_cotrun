@@ -55,6 +55,7 @@ implements ActionListener {
 		NetIO.initInfo();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -64,7 +65,7 @@ implements ActionListener {
 		} else if (arg0.getSource() == jLogin) {
 			//添加用户名、密码到字符串中
 			String str = jAdmT.getText().toString();
-			str = str + "<#>" + jPwdT.toString();
+			str = str + "<#>" + jPwdT.getText().toString();
 			if (NetIO.isManager(str)) {
 				JOptionPane.showMessageDialog(null, "登录成功!");
 				// 打开PC主管理界面

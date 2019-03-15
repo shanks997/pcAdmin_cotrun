@@ -21,7 +21,7 @@ public class NetIO {
 	// 通信建立，连接到服务端
 	public static void connect() throws Exception {
 		lock.lock();
-		sk = new Socket("127.0.0.1", 998);
+		sk = new Socket("127.0.0.1", 9998);
 		dis = new DataInputStream(sk.getInputStream());
 		dos = new DataOutputStream(sk.getOutputStream());
 	}
@@ -53,15 +53,8 @@ public class NetIO {
 		try {
 			connect();
 			dos.writeUTF(Constant.INIT_INFO);
-			String str=dis.readUTF();
-			System.out.println("str "+str);
-			Constant.style =str.split("<#>");// = din.readUTF().split("<#>");
-			Constant.flavour = dis.readUTF().split("<#>");
-			Constant.craft = dis.readUTF().split("<#>");
-			Constant.ctime = dis.readUTF().split("<#>");
-			Constant.tool = dis.readUTF().split("<#>");
-			Constant.difficulty = dis.readUTF().split("<#>");
-			Constant.label=dis.readUTF().split("<#>");
+			String str = dis.readUTF();
+			System.out.println("str " + str);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
