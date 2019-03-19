@@ -21,7 +21,7 @@ public class NetIO {
 	// 通信建立，连接到服务端
 	public static void connect() throws Exception {
 		lock.lock();
-		sk = new Socket("127.0.0.1", 9998);
+		sk = new Socket("129.204.142.254", 9998);
 		dis = new DataInputStream(sk.getInputStream());
 		dos = new DataOutputStream(sk.getOutputStream());
 	}
